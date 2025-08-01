@@ -8,7 +8,7 @@ export const Navbar = () => {
         <p className='text-2xl fond-bold text-gradient uppercase'>Resumind</p>
       </Link>
       <Link to='/upload' className='primary-button w-fit'>
-        SUBE TU CV
+        UPLOAD RESUME
       </Link>
     </nav>
   );

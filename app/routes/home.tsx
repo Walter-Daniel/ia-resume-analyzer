@@ -1,4 +1,5 @@
-import { Navbar } from '../components';
+import { resumes } from '~/constants';
+import { Navbar, ResumeCard } from '../components';
 import type { Route } from './+types/home';
 
 export function meta({}: Route.MetaArgs) {
@@ -13,13 +14,23 @@ export default function Home() {
     <main className='bg-[url(/images/bg-main.svg)] bg-cover bg-center bg-no-repeat'>
       <Navbar />
 
-      <section className='main-section'>
+      <section className='main-section py-16'>
         <div className='page-heading'>
-          <h1 className='text-4xl font-bold'>Resumind</h1>
+          <h1 className='text-4xl font-bold'>
+            Track your applications & Resume Ratings
+          </h1>
           <h2 className='text-lg mt-2'>
-            Revisa tus postulaciones y accede a comentarios generados por IA
+            Review your submissions and check AI-powered feedback
           </h2>
         </div>
+
+        {resumes.length > 0 && (
+          <div className='resumes-section'>
+            {resumes.map((resume) => (
+              <ResumeCard key={resume.id} resume={resume} />
+            ))}
+          </div>
+        )}
       </section>
     </main>
   );
