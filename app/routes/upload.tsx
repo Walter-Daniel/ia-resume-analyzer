@@ -26,7 +26,7 @@ const upload = () => {
       jobDescription,
       file,
     });
-
+        
     setIsProcessing(true);
     setStatusText('Processing your resume...');
   };
