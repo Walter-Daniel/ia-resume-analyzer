@@ -12,6 +12,21 @@ const upload = () => {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    const form = event.currentTarget.closest('form');
+    if (!form) return;
+    const formData = new FormData(form);
+
+    const companyName = formData.get('company-name');
+    const jobTitle = formData.get('job-title');
+    const jobDescription = formData.get('job-description');
+
+    console.log({
+      companyName,
+      jobTitle,
+      jobDescription,
+      file,
+    });
+
     setIsProcessing(true);
     setStatusText('Processing your resume...');
   };
